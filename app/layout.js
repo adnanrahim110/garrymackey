@@ -1,13 +1,19 @@
-import { Quicksand } from "next/font/google";
-import Footer from "./components/Footer";
-import Header from "./components/Header";
+import { Baloo_2, Quicksand } from "next/font/google";
+import Footer from "./components/Footer.jsx";
+import Header from "./components/Header.jsx";
 import "./globals.css";
 
 const quicksand = Quicksand({
   variable: "--font-quicksand",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["300", "400", "500", "600", "700"],
 });
+
+const baloo2 = Baloo_2({
+  variable: "--font-baloo-2",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"]
+})
 
 export const metadata = {
   title: "Joey the Juggling Starfish | Children's Book by Garrey",
@@ -23,11 +29,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-      </head>
-      <body className={quicksand.variable}>
+      <body className={`${quicksand.variable} ${baloo2.variable}`}>
         <Header />
         <main>{children}</main>
         <Footer />
